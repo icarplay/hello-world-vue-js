@@ -1,5 +1,9 @@
 <template>
-    <h1>Teste</h1>
+    <div>
+        <p v-for="tarefa in tarefas" :key="tarefa">
+            {{ tarefa.conteudo }}
+        </p>
+    </div>
 </template>
 
 

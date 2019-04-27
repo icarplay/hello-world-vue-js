@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
-    <listaTarefas></listaTarefas>
+    <h1>Lista de Tarefas</h1>
+    <listaTarefas :tarefas=tarefas></listaTarefas>
   </div>
 </template>
 
