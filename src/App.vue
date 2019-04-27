@@ -1,17 +1,26 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
+    <listaTarefas></listaTarefas>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+import listaTarefas from './components/listaTarefas'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    listaTarefas
+  },
+  data() {
+    return {
+      tarefas:  [
+                  {conteudo: "Terminar o curso", status: true},
+                  {conteudo: "Terminar o dia", status: false}
+                ]
+    }
   }
 }
 </script>
