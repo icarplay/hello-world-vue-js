@@ -1,13 +1,27 @@
 <template>
-    <div class="tarefas">
+    <div class="tarefas" @click="$emit('alterarStatus', tarefa)" :class="statusTarefa">
         <span class="fechar">X</span>
-        <p></p>
+        <p>{{tarefa.conteudo}}</p>
     </div>
 </template>
 
 <script>
 export default {
-    name: "tarefa"
+    name: "tarefa",
+    props: {
+        tarefa: {
+            type: Object,
+            required: true
+        }
+    },
+    computed: {
+        statusTarefa() {
+            return {
+                pendente: this.tarefa.pendente,
+                concluida: !this.tarefa.pendente
+            }
+        }
+    }
 }
 </script>
 
@@ -23,6 +37,11 @@ export default {
         user-select: none;
         display: flex;
         justify-content: center;
+        align-items: center;
+        word-wrap: break-word;
+        border-radius: 20px;
+        font-size: 25px;
+        color: white;
     }
 
     .fechar {
@@ -36,6 +55,15 @@ export default {
         border-radius: 25px;
         display: flex;
         justify-content: center;
+    }
+
+    .pendente {
+        background-color: red
+    }
+
+    .concluida {
+        background-color: green;
+        text-decoration: line-through;
     }
 
 </style>

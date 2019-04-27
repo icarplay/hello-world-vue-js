@@ -1,7 +1,10 @@
 <template>
   <div id="app">
     <h1>Lista de Tarefas</h1>
-    <listaTarefas :tarefas=tarefas></listaTarefas>
+    <listaTarefas 
+      :tarefas=tarefas
+      @alterarStatus="alterarStatus"
+    ></listaTarefas>
   </div>
 </template>
 
@@ -17,9 +20,14 @@ export default {
   data() {
     return {
       tarefas:  [
-                  {conteudo: "Terminar o curso", status: true},
-                  {conteudo: "Terminar o dia", status: false}
+                  {conteudo: "Terminar o curso", pendente: true},
+                  {conteudo: "Terminar o dia", pendente: false}
                 ]
+    }
+  },
+  methods: {
+    alterarStatus(index) {
+      this.tarefas[index].pendente = !this.tarefas[index].pendente
     }
   }
 }
